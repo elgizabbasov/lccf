@@ -1,5 +1,6 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        # Sliding Window
         L = 0
         output = 0
         strs = {}
@@ -7,8 +8,8 @@ class Solution:
         
         for r in range(len(s)):
             if s[r] in strs:
-                if strs[s[r]]< L: output = max(output, r-L+1)
-                else: L=strs[s[r]] + 1
+                if strs[s[r]] < L: output = max(output, r-L+1)
+                else: L = strs[s[r]] + 1
             else: output = max(output, r-L+1)
             
             strs[s[r]] = r
